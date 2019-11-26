@@ -23,10 +23,10 @@ const userShema = new mongoose.Schema({
 
 const User = mongoose.model('sample', userShema);
 
-app.get('users/', async(req,res)=>{
+app.get('/users', async(req,res)=>{
 	const users = await User.find({});
 	return res.json({users});
-})
+});
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
